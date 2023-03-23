@@ -177,13 +177,13 @@ class _Chat extends State<Chat> {
                     width: 0,
                   ),
                 ),
-                hasFloatingPlaceholder: true,
+                //hasFloatingPlaceholder: true,
                 hintText: "Enter your message",
                 suffixIcon:IconButton(icon: Icon(Icons.send,color: Color(0xFF1f617e),),
                     onPressed: (){
                       sendSMS(_messageController.text,thread.contact.address);
                       setState(() {
-                        final SmsMessage _newMessage = new SmsMessage(thread.contact.address, _messageController.text);
+                        final SmsMessage _newMessage = new SmsMessage(thread.contact.address, _messageController.text, kind:  SmsMessageKind.Sent,date: DateTime.now());
                         thread.messages..insert(0,_newMessage);
                         _messageController.clear();
                         _scrollController.animateTo(_scrollController.position.maxScrollExtent, duration: const Duration(milliseconds: 500), curve: Curves.easeOut);

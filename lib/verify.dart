@@ -359,17 +359,17 @@ class _VerifyScreenStste extends State<VerifyScreen> {
                                           Row(
                                             mainAxisAlignment: MainAxisAlignment.center,
                                             children: <Widget>[
-                                              FlatButton(
+                                              TextButton(
                                                 child: Text ("Cancel", style: TextStyle(color: Colors.red),),
                                                 onPressed: (){
                                                   //_onToLog();
                                                 },
                                               ),
 
-                                              FlatButton(
+                                              TextButton(
                                                 child: Text ("Resend", style: TextStyle(color: Colors.cyan),),
                                                 onPressed: (){
-                                                  _scaffoldKey.currentState.showSnackBar(
+                                                  ScaffoldMessenger.of(context).showSnackBar(
                                                     new SnackBar(duration: new Duration(seconds: 80), content:
                                                     new Row(
                                                       children: <Widget>[
@@ -382,7 +382,7 @@ class _VerifyScreenStste extends State<VerifyScreen> {
 
                                                   sendOTP().then((response){
                                                     if(jsonDecode(response)["message"].toString().contains("successfully")){
-                                                      _scaffoldKey.currentState.showSnackBar(
+                                                      ScaffoldMessenger.of(context).showSnackBar(
                                                         new SnackBar(duration: new Duration(seconds: 3), content:
                                                         new Row(
                                                           children: <Widget>[
@@ -394,7 +394,7 @@ class _VerifyScreenStste extends State<VerifyScreen> {
                                                         ),
                                                       );
                                                     }else{
-                                                      _scaffoldKey.currentState.showSnackBar(
+                                                      ScaffoldMessenger.of(context).showSnackBar(
                                                         new SnackBar(duration: new Duration(seconds: 3), content:
                                                         new Row(
                                                           children: <Widget>[
